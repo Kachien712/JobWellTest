@@ -1,9 +1,9 @@
-﻿namespace JobWell.Models
+﻿namespace JobWell.DTO
 {
-    public class RegisterDTO
+    public class LoginResponseDTO
     {
         public string FullName { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+
     }
 }

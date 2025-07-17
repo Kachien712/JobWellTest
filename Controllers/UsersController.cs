@@ -1,4 +1,5 @@
 ﻿using JobWell.Data;
+using JobWell.DTO;
 using JobWell.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -52,7 +53,12 @@ namespace JobWell.Controllers
             }
             else
             {
-                return Ok(user);
+                var userResponse = new LoginResponseDTO
+                {
+                    FullName = user.FullName,
+                    Email = user.Email
+                };
+                return Ok(userResponse);
             }
         }
 

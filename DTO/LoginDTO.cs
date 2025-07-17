@@ -1,4 +1,4 @@
-﻿namespace JobWell.Models
+﻿namespace JobWell.DTO
 {
     public class LoginDTO
     {
