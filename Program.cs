@@ -1,4 +1,5 @@
 using JobWell.Data;
+using JobWell.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ApplicationDbContext> (option =>
 option.UseSqlServer(builder.Configuration.GetConnectionString("DBCS")));
+
+builder.Services.AddScoped<PasswordHashService>();
 
 var app = builder.Build();
 
