@@ -6,16 +6,17 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace JobWell.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigrationCreate : Migration
+    public partial class InitialJobWellDBCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "users",
+                name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -24,7 +25,7 @@ namespace JobWell.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_users", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.UserId);
                 });
         }
 
@@ -32,7 +33,7 @@ namespace JobWell.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "users");
+                name: "Users");
         }
     }
 }

@@ -24,9 +24,11 @@ namespace JobWell.Migrations
 
             modelBuilder.Entity("JobWell.Models.User", b =>
                 {
-                    b.Property<Guid>("UserId")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -48,7 +50,7 @@ namespace JobWell.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("users");
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

@@ -48,7 +48,7 @@ namespace JobWell.Controllers
             var user = applicationDbContext.Users.FirstOrDefault(u => u.Email == loginDTO.Email && u.Password == loginDTO.Password);
             if (user == null)
             {
-                return NoContent();
+                return BadRequest(new { message = "Email or password is incorrect!" });
             }
             else
             {

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobWell.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250717103219_InitialMigrationCreate")]
-    partial class InitialMigrationCreate
+    [Migration("20250717112233_InitialJobWellDBCreate")]
+    partial class InitialJobWellDBCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,9 +27,11 @@ namespace JobWell.Migrations
 
             modelBuilder.Entity("JobWell.Models.User", b =>
                 {
-                    b.Property<Guid>("UserId")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -51,7 +53,7 @@ namespace JobWell.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("users");
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }
