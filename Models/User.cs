@@ -7,6 +7,9 @@
         public string Email { get; set; } 
         public string PasswordHash { get; set; }
         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
-        public int isActive { get; set; } = 1;
+        public int isActive { get; set; } = 0;
+        public string? ActivationCode { get; set; }
+        public string? PasswordResetCode { get; set; }
+        public DateTime? PasswordResetCodeExpiresOn { get; set; }
     }
 }

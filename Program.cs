@@ -1,4 +1,5 @@
 using JobWell.Data;
+using JobWell.Models;
 using JobWell.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +15,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext> (option =>
 option.UseSqlServer(builder.Configuration.GetConnectionString("DBCS")));
 
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
+
 builder.Services.AddScoped<PasswordHashService>();
+builder.Services.AddScoped<EmailService>();
 
 var app = builder.Build();
 
