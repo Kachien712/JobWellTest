@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace JobWellTest.Controllers
 {
@@ -19,12 +20,14 @@ namespace JobWellTest.Controllers
         private readonly UserManager<User> _userManager;
         private readonly ITokenService _tokenService;
         private readonly SignInManager<User> _signInManager;
+        private readonly IEmailService _emailService;
 
-        public AccountController(UserManager<User> userManager, ITokenService tokenService, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, ITokenService tokenService, SignInManager<User> signInManager, IEmailService emailService)
         {
             _userManager = userManager;
             _tokenService = tokenService;
             _signInManager = signInManager;
+            _emailService = emailService;
         }
 
         [AllowAnonymous]
@@ -51,17 +54,23 @@ namespace JobWellTest.Controllers
                 var createUser = await _userManager.CreateAsync(user, registerDTO.Password);
 
                 if (createUser.Succeeded)
-                { 
+                {
                     var roleResult = await _userManager.AddToRoleAsync(user, "User");
                     if (roleResult.Succeeded)
                     {
-                        return Ok(
-                            new RegisterResponseDTO
-                            {
-                                UserName = user.UserName,
-                                Email = user.Email,
-                                Token = _tokenService.CreateToken(user)
-                            });
+                        var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
+                        await _emailService.SendEmail(user.Email, "Please use this code to confirm your email.", $"This is the code: {code}");
+
+                        return Ok(new { message = $"Please confirm your email with the code sent to your email." });
+
+                        //return Ok(
+                        //    new RegisterResponseDTO
+                        //    {
+                        //        UserName = user.UserName,
+                        //        Email = user.Email,
+                        //        Token = _tokenService.CreateToken(user)
+                        //    });
                     }
                     else
                     {
@@ -100,6 +109,17 @@ namespace JobWellTest.Controllers
                 return Unauthorized("UserName not found or password is incorrect.");
             }
 
+            if (!await _userManager.IsEmailConfirmedAsync(user))
+            {
+                return Unauthorized(new AuthResult()
+                {
+                    Errors = new List<string>()
+                    {
+                        "Email is not confirmed",
+                    }
+                });
+            }
+
             return Ok(
                 new LoginResponseDTO
                 {
@@ -108,6 +128,38 @@ namespace JobWellTest.Controllers
                     Token = _tokenService.CreateToken(user)
                 }
             );
-        }    
+        }
+
+        [HttpPost("ConfirmEmail")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail(string? email, string? code)
+        {
+            if (email == null || code == null)
+            {
+                return BadRequest("Invalid payload.");
+            }
+
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return BadRequest("Invalid payload.");
+            }
+
+            var isVerified = await _userManager.ConfirmEmailAsync(user, code);
+            if (isVerified.Succeeded)
+            {
+                return Ok(new
+                {
+                    message = "Email confirmed."
+                });
+            }
+            return BadRequest("something went wrong.");
+        }
+
+        //[HttpPut]
+        //public async Task<IActionResult> ChangePassword()
+        //{
+
+        //}
     }
 }
