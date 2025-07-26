@@ -1,0 +1,6 @@
+@JobWellTest_HostAddress = http://localhost:5208
+
+GET {{JobWellTest_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

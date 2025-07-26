@@ -1,10 +1,10 @@
-﻿using JobWellTest2.Interfaces;
-using JobWellTest2.Models;
+﻿using JobWellTest.Interfaces;
+using JobWellTest.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace JobWellTest2.Controllers
+namespace JobWellTest.Controllers
 {
     [Route("api/users")]
     [ApiController]

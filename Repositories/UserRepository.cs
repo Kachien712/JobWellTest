@@ -1,10 +1,10 @@
-﻿using JobWellTest2.DTOs.UserManagement;
-using JobWellTest2.Interfaces;
-using JobWellTest2.Mappers;
-using JobWellTest2.Models;
+﻿using JobWellTest.DTOs.UserManagement;
+using JobWellTest.Interfaces;
+using JobWellTest.Mappers;
+using JobWellTest.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace JobWellTest2.Repositories
+namespace JobWellTest.Repositories
 {
     public class UserRepository : IUserRepository
     {

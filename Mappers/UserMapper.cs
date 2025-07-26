@@ -1,7 +1,7 @@
-﻿using JobWellTest2.DTOs.UserManagement;
-using JobWellTest2.Models;
+﻿using JobWellTest.DTOs.UserManagement;
+using JobWellTest.Models;
 
-namespace JobWellTest2.Mappers
+namespace JobWellTest.Mappers
 {
     public static class UserMapper
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace JobWellTest2.DTOs.Authentication
+namespace JobWellTest.DTOs.Authentication
 {
     public class RegisterRequestDTO
     {

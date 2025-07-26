@@ -1,11 +1,11 @@
-﻿using JobWellTest2.Interfaces;
-using JobWellTest2.Models;
+﻿using JobWellTest.Interfaces;
+using JobWellTest.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace JobWellTest2.Services
+namespace JobWellTest.Services
 {
     public class TokenService : ITokenService
     {

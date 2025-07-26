@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace JobWellTest2.Models
+namespace JobWellTest.Models
 {
     public class User : IdentityUser
     {

@@ -1,6 +1,6 @@
-﻿using JobWellTest2.DTOs.UserManagement;
+﻿using JobWellTest.DTOs.UserManagement;
 
-namespace JobWellTest2.Interfaces
+namespace JobWellTest.Interfaces
 {
     public interface IUserRepository
     {

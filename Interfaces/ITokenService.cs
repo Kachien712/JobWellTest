@@ -1,6 +1,6 @@
-﻿using JobWellTest2.Models;
+﻿using JobWellTest.Models;
 
-namespace JobWellTest2.Interfaces
+namespace JobWellTest.Interfaces
 {
     public interface ITokenService
     {

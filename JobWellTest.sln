@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36310.24 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobWellTest2", "JobWellTest2.csproj", "{D198069B-1BC6-4DD2-9E45-AA82333265C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobWellTest", "JobWellTest.csproj", "{2CA4C597-12D2-8E5C-2DDA-29420FBEFB13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D198069B-1BC6-4DD2-9E45-AA82333265C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D198069B-1BC6-4DD2-9E45-AA82333265C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D198069B-1BC6-4DD2-9E45-AA82333265C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D198069B-1BC6-4DD2-9E45-AA82333265C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CA4C597-12D2-8E5C-2DDA-29420FBEFB13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CA4C597-12D2-8E5C-2DDA-29420FBEFB13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CA4C597-12D2-8E5C-2DDA-29420FBEFB13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CA4C597-12D2-8E5C-2DDA-29420FBEFB13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D5FC742D-B279-4E5E-89E6-30ADA9B7B4CA}
+		SolutionGuid = {AA2FB163-76AC-437E-8716-5ACF1EE8E737}
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,4 @@
-﻿namespace JobWellTest2.DTOs.UserManagement
+﻿namespace JobWellTest.DTOs.UserManagement
 {
     public class UserDTO
     {

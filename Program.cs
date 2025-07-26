@@ -1,8 +1,8 @@
-using JobWellTest2.Data;
-using JobWellTest2.Interfaces;
-using JobWellTest2.Models;
-using JobWellTest2.Repositories;
-using JobWellTest2.Services;
+using JobWellTest.Data;
+using JobWellTest.Interfaces;
+using JobWellTest.Models;
+using JobWellTest.Repositories;
+using JobWellTest.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

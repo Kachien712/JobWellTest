@@ -1,14 +1,15 @@
-﻿using JobWellTest2.DTOs.Authentication;
-using JobWellTest2.DTOs.UserManagement;
-using JobWellTest2.Interfaces;
-using JobWellTest2.Models;
+﻿using JobWellTest.DTOs.Authentication;
+using JobWellTest.Interfaces;
+using JobWellTest.Models;
+using JobWellTest.DTOs.Authentication;
+using JobWellTest.DTOs.UserManagement;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace JobWellTest2.Controllers
+namespace JobWellTest.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
