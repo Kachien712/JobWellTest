@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace JobWellTest2.Migrations
+namespace JobWellTest.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,7 @@ namespace JobWellTest2.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("JobWellTest2.Models.User", b =>
+            modelBuilder.Entity("JobWellTest.Models.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -127,13 +127,13 @@ namespace JobWellTest2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1ddb9ce1-90b8-48d8-baf6-a318c7496910",
+                            Id = "53a7da3b-4b15-4b1f-95a8-33d98b77b946",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "27925f23-4ce8-4a55-a92b-c759a31bf066",
+                            Id = "088f9cd4-7a15-42c3-bb27-878c9625210d",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -256,7 +256,7 @@ namespace JobWellTest2.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("JobWellTest2.Models.User", null)
+                    b.HasOne("JobWellTest.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -265,7 +265,7 @@ namespace JobWellTest2.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("JobWellTest2.Models.User", null)
+                    b.HasOne("JobWellTest.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -280,7 +280,7 @@ namespace JobWellTest2.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JobWellTest2.Models.User", null)
+                    b.HasOne("JobWellTest.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -289,7 +289,7 @@ namespace JobWellTest2.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("JobWellTest2.Models.User", null)
+                    b.HasOne("JobWellTest.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace JobWellTest2.Migrations
+namespace JobWellTest.Migrations
 {
     /// <inheritdoc />
     public partial class Init : Migration
@@ -33,7 +33,8 @@ namespace JobWellTest2.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CitizenIdentityNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfBirth = table.Column<DateOnly>(type: "date", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -165,8 +166,8 @@ namespace JobWellTest2.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "2d567f45-0c79-4147-99fb-78fe36ff24a6", null, "User", "USER" },
-                    { "3c2b404c-25b8-4ab2-8f93-cfa1c0befa08", null, "Admin", "ADMIN" }
+                    { "088f9cd4-7a15-42c3-bb27-878c9625210d", null, "User", "USER" },
+                    { "53a7da3b-4b15-4b1f-95a8-33d98b77b946", null, "Admin", "ADMIN" }
                 });
 
             migrationBuilder.CreateIndex(
