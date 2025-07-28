@@ -28,6 +28,7 @@ namespace JobWellTest.Services
             smtpClient.Credentials = new NetworkCredential(email, password);
 
             var message = new MailMessage(email, receptor, subject, body);
+            message.IsBodyHtml = true;
             await smtpClient.SendMailAsync(message);
 
         }

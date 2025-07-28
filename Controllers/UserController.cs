@@ -1,5 +1,7 @@
-﻿using JobWellTest.Interfaces;
+﻿using JobWellTest.Extensions;
+using JobWellTest.Interfaces;
 using JobWellTest.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -44,6 +46,16 @@ namespace JobWellTest.Controllers
             return Ok(user);
         }
 
+        [HttpPost("enable-2fa")]
+        [Authorize]
+        public async Task<IActionResult> Enable2FA()
+        {
+            var userName = User.GetUsername();
+            var user = await _userManager.FindByNameAsync(userName);
 
+            await _userManager.SetTwoFactorEnabledAsync(user, true);
+
+            return Ok(new { message = "Two factor authentication has been enabled." });
+        }
     }
 }

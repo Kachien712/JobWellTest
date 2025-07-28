@@ -24,7 +24,7 @@ namespace JobWellTest.DTOs.Authentication
         public string PhoneNumber { get; set; }
 
         [Required]
-        [RegularExpression(@"^\d{12}$", ErrorMessage = "Số CCCD phải là 12 chữ số.")]
+        [RegularExpression(@"^\d{12}$", ErrorMessage = "Citizen identity number must be 12 digits.")]
         public string CitizenIdentityNumber { get; set; }
 
         [Required(ErrorMessage = "Password is required.")]
